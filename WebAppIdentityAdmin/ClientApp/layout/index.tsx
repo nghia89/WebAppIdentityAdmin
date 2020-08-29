@@ -3,12 +3,11 @@ import { Container } from 'reactstrap';
 import { Navigation } from './AdminLayout/Navigation'
 
 export class Layout extends Component {
-    static displayName = Layout.name;
 
     render() {
         return (
             <div>
-                <Navigation />
+                <Navigation/>
                 <Container>
                     {this.props.children}
                 </Container>
@@ -16,3 +15,4 @@ export class Layout extends Component {
         );
     }
 }
+

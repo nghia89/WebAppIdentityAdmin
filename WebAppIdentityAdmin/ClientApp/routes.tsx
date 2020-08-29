@@ -1,6 +1,6 @@
 ﻿import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Layout } from './layout/Layout';
+import { Layout } from './layout';
 import Home from './screens/home';
 import * as Error from './screens/errors';
 export const routes =

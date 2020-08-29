@@ -32,7 +32,6 @@ module.exports = (env) => {
                 'react-dom',
                 'react-router-dom',
                 "history",
-                "react-hot-loader",
                 "react-router",
                 "reactstrap",
                 "moment",
