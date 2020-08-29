@@ -8,32 +8,22 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
     return [{
-        //mode: isDevBuild ? "development" : "production",
-        mode: 'development',
+        mode: isDevBuild ? "development" : "production",
         stats: { modules: false },
-        entry: { main: './ClientApp/app.tsx' },
+        entry: { bundle: './ClientApp/app.tsx' },
         resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
         output: {
             path: path.join(__dirname, "/wwwroot/dist"),
-            filename: 'bundle.js',
+            filename: '[name].js',
             publicPath: 'dist/',
             library: '[name]'
         },
         module: {
             rules: [
                 { test: /\.tsx?$/, include: /ClientApp/, use: 'awesome-typescript-loader?silent=true' },
-                {
-                    test: /\.(sa|sc|c)ss$/,
-                    use: [
-                        {
-                            loader: MiniCssExtractPlugin.loader
-                        },
-                        'css-loader',
-                        'sass-loader',
-                    ],
-                },
+                {test: /\.(sa|sc|c)ss$/,use: [{loader: MiniCssExtractPlugin.loader},'css-loader','sass-loader',],},             
                 { test: /.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=25000' },
-                { test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/, use: 'file-loader?name=[name].[ext]' }  // <-- retain original file name     
+                { test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.wav$|\.mp3$/, use: 'file-loader?name=[name].[ext]' }
             ]
         },
         devtool: false,
