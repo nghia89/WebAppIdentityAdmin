@@ -10,6 +10,10 @@ namespace WebAppIdentityAdmin.Controllers
     {
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                Console.WriteLine("user bắt đầu vào Home");
+            }
             return View();
         }
     }

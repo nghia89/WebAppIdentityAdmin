@@ -5,14 +5,15 @@ import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { BrowserRouter } from 'react-router-dom';
 import * as RoutesModule from './routes';
-import config from './config';
+//import config from './config';
 
 let routes = RoutesModule.routes;
+const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href')!;
 
 function renderApp() {
     ReactDOM.render(
         <AppContainer>
-            <BrowserRouter children={routes} basename={config.basename} />
+            <BrowserRouter children={routes} basename={baseUrl} />
         </AppContainer>,
         document.getElementById('root')
     );

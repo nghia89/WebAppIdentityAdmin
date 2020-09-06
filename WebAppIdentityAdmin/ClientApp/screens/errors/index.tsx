@@ -1,3 +1,4 @@
-﻿import Error404 from './Error404';
+﻿import Error404 from './error404';
+import Permission from './permission';
 
-export { Error404 };
+export { Error404, Permission};

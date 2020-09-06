@@ -7,6 +7,8 @@ export const routes =
     <Layout>
         <Switch>
             <Route exact path='/' component={Home} />
+            <Route path='/permission' component={Error.Permission} />
             <Route component={Error.Error404} />
+           
         </Switch>
     </Layout>;
